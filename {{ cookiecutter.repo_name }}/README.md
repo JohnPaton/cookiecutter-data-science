@@ -21,7 +21,7 @@ Project Organization
     │
     ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
     │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
+    │                         `1.0-jdp-initial-data-exploration`.
     │
     ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
     │
@@ -30,11 +30,7 @@ Project Organization
     │
     ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
     │                         generated with `pip freeze > requirements.txt`
-    │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
-    │   │
+    ├── scripts            <- Executable scripts for running tasks in the project pipeline
     │   ├── data           <- Scripts to download or generate data
     │   │   └── make_dataset.py
     │   │
@@ -48,6 +44,12 @@ Project Organization
     │   │
     │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
     │       └── visualize.py
+    │
+    ├── setup.py           <- Makes project source pip installable (pip install -e .) so src can be imported
+    ├── src                <- General use functionality for this project, e.g. for use in the pipeline scripts
+    │   ├── __init__.py    <- Makes src a Python module
+    │   ├── exceptions.py  <- Custom exceptions and exeption handling
+    │   └── utils.py       <- General utility functions
     │
     └── tox.ini            <- tox file with settings for running tox; see tox.testrun.org
 
