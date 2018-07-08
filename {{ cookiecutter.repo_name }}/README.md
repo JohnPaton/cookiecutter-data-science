@@ -1,3 +1,4 @@
+
 {{cookiecutter.project_name}}
 ==============================
 
@@ -6,6 +7,7 @@
 Project Organization
 ------------
 
+```
     ├── LICENSE
     ├── Makefile           <- Makefile with commands like `make data` or `make train`
     ├── README.md          <- The top-level README for developers using this project.
@@ -45,14 +47,16 @@ Project Organization
     │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
     │       └── visualize.py
     │
-    ├── setup.py           <- Makes project source pip installable (pip install -e .) so src can be imported
-    ├── src                <- General use functionality for this project, e.g. for use in the pipeline scripts
+    ├── setup.py           <- Makes project package pip installable (pip install -e .) so 
+    │                         {{ cookiecutter.repo_name }} can be imported
+    ├── {{ cookiecutter.repo_name.ljust(18) }} <- Python package for general use functionality,
+    │   │                     e.g. for use in the pipeline scripts
     │   ├── __init__.py    <- Makes src a Python module
     │   ├── exceptions.py  <- Custom exceptions and exeption handling
     │   └── utils.py       <- General utility functions
     │
     └── tox.ini            <- tox file with settings for running tox; see tox.testrun.org
-
+```
 
 --------
 

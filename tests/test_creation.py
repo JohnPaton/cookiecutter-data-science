@@ -73,7 +73,7 @@ def test_folders(default_baked_project):
         'scripts/features',
         'scripts/models',
         'scripts/visualization',
-        'src',
+        'project_name',
     ]
 
     ignored_dirs = [

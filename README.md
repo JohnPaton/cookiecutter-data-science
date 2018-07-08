@@ -77,8 +77,10 @@ The directory structure of your new project looks like this:
     │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
     │       └── visualize.py
     │
-    ├── setup.py           <- Makes project source pip installable (pip install -e .) so src can be imported
-    ├── src                <- General use functionality for this project, e.g. for use in the pipeline scripts
+    ├── setup.py           <- Makes project source pip installable (pip install -e .) so 
+    │                         {{ cookiecutter.repo_name }} can be imported
+    ├── [chosen repo_name] <- General use functionality for this project, e.g. for 
+    │   │                     use in the pipeline scripts
     │   ├── __init__.py    <- Makes src a Python module
     │   ├── exceptions.py  <- Custom exceptions and exeption handling
     │   └── utils.py       <- General utility functions
