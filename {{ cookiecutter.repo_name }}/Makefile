@@ -1,18 +1,18 @@
-.PHONY: clean data lint requirements sync_data_to_s3 sync_data_from_s3
+.PHONY: clean data lint requirements sync_data_to_s3 sync_data_from_s3 shell
 
 #################################################################################
 # GLOBALS                                                                       #
 #################################################################################
 
-SHELL := $(shell echo \$(SHELL))
+SHELL := $(shell finger $(shell whoami) | sed -n 's/.*Shell:\(.*\) /\1/p')
 
 PROJECT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
-BUCKET = {{ cookiecutter.s3_bucket }}
-PROFILE = {{ cookiecutter.aws_profile }}
-PROJECT_NAME = {{ cookiecutter.repo_name }}
-PYTHON_INTERPRETER = {{ cookiecutter.python_interpreter }}
+BUCKET = [OPTIONAL] your-bucket-for-syncing-data (do not include 's3://')
+PROFILE = default
+PROJECT_NAME = test5
+PYTHON_INTERPRETER = python3
 
-ifeq (,$(shell which conda))
+ifeq (,$(shell /bin/bash -c "which conda"))
 HAS_CONDA=False
 else
 HAS_CONDA=True
@@ -24,7 +24,8 @@ endif
 
 ## Install Python Dependencies
 requirements: test_environment
-	pip install -U pip setuptools wheel
+	source activate $(PROJECT_NAME) && \
+	pip install -U pip setuptools wheel && \
 	pip install -r requirements.txt
 
 ## Make Dataset
@@ -67,10 +68,10 @@ else
 endif
 	@echo ">>> New conda env created. Activate with:\nsource activate $(PROJECT_NAME)"
 else
-	@pip install -q virtualenv 
-	@virtualenv venv/{{ cookiecutter.repo_name }}
-	@ln -s venv/{{ cookiecutter.repo_name }}/bin/activate
-	@echo "New virtualenv created in venv/{{ cookiecutter.repo_name }}, activate with source activate"
+	-@pip install -q virtualenv 
+	@virtualenv venv/test5
+	-@ln -s venv/test5/bin/activate
+	@echo "New virtualenv created in venv/test5, activate with source activate"
 endif
 
 ## Test python environment is setup correctly
